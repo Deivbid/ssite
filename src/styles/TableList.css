@@ -1,0 +1,17 @@
+.ubuntu {
+  font-family: Ubuntu;
+}
+
+.itemContainer {
+	border-bottom: 1px solid #B9B9B9;
+}
+
+@media only screen and (max-width: 600px) {
+  .itemText{
+		text-align: center;
+	}
+	
+	.itemTitle{
+		text-align: center;
+	}
+}
