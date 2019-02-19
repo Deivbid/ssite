@@ -9,7 +9,7 @@ const AppBar = (props) => (
       align='center'
       justify='between'
       background='#FFF'
-      margin={{ horizontal: 'large', vertical: 'small' }}
+      margin={{ horizontal: 'large', top: 'small' }}
       elevation='medium'
       style={{ zIndex: '1', borderBottom: '1px solid #B9B9B9' }}
       {...props}

@@ -6,6 +6,16 @@
 	border-bottom: 1px solid #B9B9B9;
 }
 
+.itemText {
+	font-weight: 600;
+	line-height: 1;
+}
+
+.itemTitle {
+	font-family: Ubuntu-Light;
+	font-weight: 600;
+}
+
 @media only screen and (max-width: 600px) {
   .itemText{
 		text-align: center;

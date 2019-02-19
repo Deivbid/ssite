@@ -7,7 +7,6 @@ import {
 	Button, 
 	Grommet,
 } from 'grommet';
-import LGenerator from '../images/LGenerator.png';
 import '../styles/TableList.css';
 
 const border = {
@@ -22,80 +21,90 @@ const theme = {
 			color: '#542FEA'
 		},
     padding: {
-      vertical: "5px",
-      horizontal: "40px"
+      vertical: "3.5px",
+      horizontal: "35px"
     },		
 	},
 };
 
-const CustomButton = () => (
+const CustomButton = (props) => (
   <Grommet theme={theme}>
-    <Box align="center" pad="medium">
-      <Button label="Delegate" onClick={() => {}} primary />
+    <Box align="center" margin='auto'>
+			<Button 
+				label={props.text} 
+				onClick={() => {}} 
+				primary={true} 
+				style={{fontSize: '14px'}}
+			/>
     </Box>
   </Grommet>
 )
 
-const TableList = (props) => {
-    return(
-        <Box align='center' fill>
+const generateItems = (props) => {
+	const { items } = props;
+	return items.map((item, index) => {
+		return (
+				<Box 
+					direction='row-responsive' 
+					justify='between' 
+					heigth='large' 
+					width='xlarge'
+					border={border}
+				
+					key={index}
+				>
 					<Box 
-						direction='row-responsive' 
-						justify='between' 
-						heigth='large' 
-						width='xlarge'
-						border={border}
+						direction='row'
+						justify='between'
 					>
 						<Box 
-							direction='row'
-							justify='between'
+							height='4em'
+							width='4em'
+							margin={{vertical: 'auto', right: '.5em'}}
 						>
-							<Box 
-								height='xsmall'
-								width='xsmall'
-							>
-								<Image src={LGenerator} fit='contain'/>
-							</Box>
-
-							<Box
-								height='xsmall'
-							>
-								<Heading 
-									level='2' 
-									margin='none' 
-									className='itemTitle Ubuntu'
-								> 
-									Lead Generation 
-								</Heading>
-								<Box width='medium'>
-									<Paragraph 
-										margin='none'
-										className='itemText Ubuntu'
-									>
-										Generate a list of leads from multiple sources, 
-										including LinkedIn and Facebook
-									</Paragraph>
-								</Box>
-							</Box>
+							<Image src={item.image} fit='contain'/>
 						</Box>
 
-						<Box height='xsmall' justify='center'>
-							<CustomButton />
+						<Box
+							height='xsmall'
+							margin='auto'
+							justify='center'
+						>
+							<Heading 
+								level='3' 
+								margin='none' 
+								className='itemTitle Ubuntu'
+							> 
+								{item.title} 
+							</Heading>
+							<Box width='small'>
+								<Paragraph 
+									margin='none'
+									className='itemText Ubuntu'
+									size='small'
+								>
+									{item.subtitle}
+								</Paragraph>
+							</Box>
 						</Box>
-          </Box>
+					</Box>
+					<Box height='xsmall' justify='center'>
+						<CustomButton text={item.buttonText}/>
+					</Box>					
+				</Box>
+		);
+	})
+}
 
-        	<Box>
-						<Heading level='2' margin='none'> Lead Generation </Heading>
-          </Box>
-
-        	<Box>
-						<Heading level='2' margin='none'> Lead Generation </Heading>
-          </Box>
-
-        	<Box>
-						<Heading level='2' margin='none'> Lead Generation </Heading>
-          </Box>															
-        </Box>
+const TableList = (props) => {
+    return(
+			<Box 
+				align='center' 
+				fill={true}
+				margin={{horizontal: 'medium', vertical: '0'}}
+			>
+				{generateItems(props)}
+			</Box>
     )
 }
 
