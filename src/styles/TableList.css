@@ -2,8 +2,16 @@
   font-family: Ubuntu;
 }
 
+.list {
+	margin: 0 4em;
+}
+
+.item {
+	margin: '1em 0';
+}
+
 .itemContainer {
-	border-bottom: 1px solid #B9B9B9;
+	border-bottom: .5px solid #B9B9B9;
 }
 
 .itemText {

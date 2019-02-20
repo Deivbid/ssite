@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Image } from 'grommet';
 import Logo from '../images/logo.png';
+import '../styles/Header.css'
 
 const AppBar = (props) => (
     <Box
@@ -19,15 +20,15 @@ const AppBar = (props) => (
 
 const Header = (props) => {
     return(
-      <AppBar>
-        <Box height='xsmall' width='small'>
-					<Image 
-						src={Logo} 
-						alt='Invisible' 
-						fit='contain'
-					/>
-				</Box>
-    	</AppBar>        
+        <div className='headerContainer'>
+          <Box height='xsmall' width='small'>
+            <Image 
+              src={Logo} 
+              alt='Invisible' 
+              fit='contain'
+            />
+          </Box>
+				</div>
     )
 }
 
