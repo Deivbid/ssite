@@ -26,13 +26,7 @@ class App extends Component {
           {size => (
             <Box fill>
               <Header />
-              <Box
-                direction="row"
-                flex={true}
-                margin={{ horizontal: "large", bottom: "small" }}
-              >
-                <TableList items={items} />
-              </Box>
+              <TableList items={items} />              
             </Box>
           )}
         </ResponsiveContext.Consumer>

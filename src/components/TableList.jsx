@@ -50,12 +50,12 @@ const generateItems = (props) => {
 					heigth='large' 
 					width='xlarge'
 					border={border}
-				
+					margin={{vertical: 'small'}}
 					key={index}
 				>
 					<Box 
 						direction='row'
-						justify='between'
+						justify='center'
 					>
 						<Box 
 							height='4em'
@@ -67,7 +67,7 @@ const generateItems = (props) => {
 
 						<Box
 							height='xsmall'
-							margin='auto'
+							margin={{vertical: 'auto'}}
 							justify='center'
 						>
 							<Heading 
@@ -98,13 +98,11 @@ const generateItems = (props) => {
 
 const TableList = (props) => {
     return(
-			<Box 
-				align='center' 
-				fill={true}
-				margin={{horizontal: 'medium', vertical: '0'}}
+			<div 
+				className='list'
 			>
 				{generateItems(props)}
-			</Box>
+			</div>
     )
 }
 

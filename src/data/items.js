@@ -35,7 +35,7 @@ const items = [
     subtitle: "Message over 1000 LinkedIn contacts",
     image: Message,
     buttonText: "Delegate"
-  }
+  },
 ];
 
 export { items };
