@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Header } from "../components/Header";
 import { TableList } from "../components/TableList";
 import { Box, Grommet, ResponsiveContext } from "grommet";
-import { items } from "../data/items";
+import { Spinner } from "../components/Spinner/Spinner";
+//import { items } from "../data/items";
+import Tabletop from "tabletop";
 
 const theme = {
   font: {
@@ -14,9 +16,23 @@ const theme = {
 
 class App extends Component {
   constructor(props) {
+
     super(props);
 
-    this.state = {};
+    this.state = {
+      data: []
+    };
+
+  }
+
+  componentDidMount() {
+    Tabletop.init({
+      key: '1wh7QUfQKMSgkVfXA21P2XBwpSr4zMpCmCLNX0GDpuco',
+      callback: data => {
+        this.setState({data: data['The Process Wall'].elements});
+      },
+      wanted: ['The Process Wall'],
+    });
   }
 
   render() {
@@ -26,7 +42,7 @@ class App extends Component {
           {size => (
             <Box fill>
               <Header />
-              <TableList items={items} />              
+              {this.state.data.length !== 0 ? <TableList items={this.state.data} /> : <Spinner />}    
             </Box>
           )}
         </ResponsiveContext.Consumer>

@@ -9,6 +9,11 @@ import {
 } from 'grommet';
 import '../styles/TableList.css';
 
+import LGenerator from "../images/LGenerator.png";
+import LGeneratorCheck from "../images/LGeneratorCheck.png";
+import Message from "../images/messages.png";
+import Email from "../images/email.png";
+
 const border = {
 	side: 'bottom',
 	color: '#B9B9B9',
@@ -31,14 +36,25 @@ const CustomButton = (props) => (
   <Grommet theme={theme}>
     <Box align="center" margin='auto'>
 			<Button 
-				label={props.text} 
-				onClick={() => {}} 
+				label={'Delegate'} 
+				href={`${props.link}`}
+				target='_blank' 
 				primary={true} 
 				style={{fontSize: '14px'}}
 			/>
     </Box>
   </Grommet>
 )
+
+const findImage = (image) => {
+	switch(image){
+		case 1: return LGenerator
+		case 2: return LGeneratorCheck
+		case 3: return Message
+		case 4: return Email
+		default: return LGenerator
+	}
+}
 
 const generateItems = (props) => {
 	const { items } = props;
@@ -62,7 +78,7 @@ const generateItems = (props) => {
 							width='4em'
 							margin={{vertical: 'auto', right: '.5em'}}
 						>
-							<Image src={item.image} fit='contain'/>
+							<Image src={findImage(parseInt(item.Image))} fit='contain'/>
 						</Box>
 
 						<Box
@@ -75,7 +91,7 @@ const generateItems = (props) => {
 								margin='none' 
 								className='itemTitle Ubuntu'
 							> 
-								{item.title} 
+								{item.Name} 
 							</Heading>
 							<Box width='small'>
 								<Paragraph 
@@ -83,13 +99,13 @@ const generateItems = (props) => {
 									className='itemText Ubuntu'
 									size='small'
 								>
-									{item.subtitle}
+									{item.Description}
 								</Paragraph>
 							</Box>
 						</Box>
 					</Box>
 					<Box height='xsmall' justify='center'>
-						<CustomButton text={item.buttonText}/>
+						<CustomButton link={item.Link}/>
 					</Box>					
 				</Box>
 		);
