@@ -59,7 +59,6 @@ const findImage = (image) => {
 const generateItems = (props) => {
 	const { items } = props;
 	return items.map((item, index) => {
-		console.log(item)
 		return (
 				<Box 
 					direction='row-responsive' 

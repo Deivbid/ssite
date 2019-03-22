@@ -42,7 +42,7 @@ class App extends Component {
           {size => (
             <Box fill>
               <Header />
-              {this.state.data.length !== 0 ? <TableList items={this.state.data} /> : <Spinner />}           
+              {this.state.data.length !== 0 ? <TableList items={this.state.data} /> : <Spinner />}    
             </Box>
           )}
         </ResponsiveContext.Consumer>

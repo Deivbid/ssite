@@ -4,7 +4,6 @@
   height: 100%;
   text-align: center;
 }
-
 .spinner {
   position: relative;
   margin: auto 0;
@@ -18,7 +17,7 @@
   animation: spinner 2.5s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
   width: 1em;
   height: 1em;
-  background-color: #543CEA;
+  background-color: #543FEA;
 }
 .spinner:after {
   animation: shadow 2.5s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
@@ -27,7 +26,6 @@
   border-radius: 50%;
   background-color: rgba(#000,0.2);
 }
-
 @keyframes spinner {
   50% {
     border-radius: 50%;
